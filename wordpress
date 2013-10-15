@@ -1,0 +1,12 @@
+add_shortcode('gbooks', 'sc_embed_google_books');
+function sc_embed_google_books( $atts ){
+        extract(shortcode_atts(array(
+                "id" => '',
+                "width"  => '600',
+                "height" => '900',
+        ), $atts));
+        return '<script type="text/javascript" src="http://books.google.com/books/previewlib.js"></script>
+        <script type="text/javascript">
+        GBS_insertEmbeddedViewer("'.$id.'", '.$width.','.$height.');
+        </script>';
+}
