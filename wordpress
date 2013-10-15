@@ -1,3 +1,5 @@
+//place in functions.php
+
 add_shortcode('gbooks', 'sc_embed_google_books');
 function sc_embed_google_books( $atts ){
         extract(shortcode_atts(array(
@@ -10,3 +12,6 @@ function sc_embed_google_books( $atts ){
         GBS_insertEmbeddedViewer("'.$id.'", '.$width.','.$height.');
         </script>';
 }
+
+
+// SHORTCODE: [gbooks id="0578022702" width="400" height="400"]
