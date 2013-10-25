@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>the title</title>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   
+</head>
+<body>
+   <section class="book" data-isbn="0553283685">
+  <header>
+    <h3 class="title"></h3>
+    <h4 class="author"></h4>
+  </header>
+
+  <img src="" alt="" class="thumbnail" />  
+    
+</section>
+   <script type="text/javascript" language="javascript">
+   
+   
+ 
+  var isbn = $('.book').data('isbn');
+  var googleBooksUrl =  'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn;
+   
+   $(document).ready(function() {
+      
+          $.getJSON( googleBooksUrl, function(book) {
+             $('#stage').html('<p> Title: ' + book.items[0].volumeInfo.title+ '</p>');
+             $('#stage').append('<p>Author : ' + book.items[0].volumeInfo.authors+ '</p>');
+          
+             $('#stage').append('<img src="'+ book.items[0].volumeInfo.imageLinks.thumbnail+ '" />');
+          });
+      
+   });
+   </script>
+  
+   
+   <div id="stage" >
+         
+   </div>
+   
+   
+   
+</body>
+</html>
